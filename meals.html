@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="FAVICON-removebg-preview.png">
+</head>
+<body class="bg-[url('ALL.jpeg')] bg-cover bg-center bg-no-repeat h-full w-full">
+    <header class="relative bg-[url('BG2.jpg')] bg-cover bg-center bg-no-repeat w-full py-6">
+        <!-- Overlay for better readability -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    
+        <div class="relative container mx-auto px-6 flex flex-col items-center">
+            <!-- Logo Section (Centered) -->
+            <div class="flex items-center gap-4">
+                <img src="F_AST_burgers-removebg-preview.png" class="h-[100px] w-[400px]" alt="Logo">
+            </div>
+    
+            <!-- Navigation Bar -->
+            <nav class="mt-6 bg-white bg-opacity-70 rounded-full px-10 py-3 flex items-center justify-between w-[80%] shadow-lg">
+                <!-- Links -->
+                <ul class="flex gap-8 text-lg font-semibold">
+                    <li><a href="index.html" class="text-gray-800 hover:text-yellow-600 transition">HOME</a></li>
+                    <li><a href="meals.html" class="text-gray-800 hover:text-yellow-600 transition">MENU</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-yellow-600 transition">BOOKING</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-yellow-600 transition">REVIEWS</a></li>
+                </ul>
+    
+                <!-- Search & Notification -->
+                <div class="flex items-center gap-6">
+                    <div class="relative">
+                        <input type="text" placeholder="Search..." class="px-4 py-2 rounded-full border border-gray-400 focus:outline-none">
+                        <button class="absolute right-2 top-1 text-gray-500 hover:text-yellow-600">
+                            🔍
+                        </button>
+                    </div>
+    
+                    <button class="relative text-gray-500 hover:text-yellow-600">
+                        🔔
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">5</span>
+                    </button>
+                </div>
+    
+                <!-- CTA Button -->
+                <a href="meals.html" class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-full transition duration-300 shadow-lg animate-bounce">
+                    Order Now
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="container mx-auto px-6 py-10">
+    
+        <h2 class="text-3xl font-bold text-center text-yellow-600 mb-6">FAST ARCH BURGERS MENU</h2>
+        <!--The main Content Container-->
+        <section class="flex justify-center gap-[100px] flex-nowrap">
+            <!-- The first meal -->
+            <div class="bg-[url('P1.jpg')] bg-no-repeat bg-center bg-cover bg-red-600 h-[360px] w-[300px] rounded-[50px] flex items-end justify-center p-4 transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="text-white text-center">
+                    <p class="text-xl font-bold">CHEESE BURGER, MILKSHAKE, 2 CHICKEN STEAKS & SHAWARMA</p>
+                    <p class="font-bold text-green-500 text-4xl mt-2">$12.50</p>
+                </div>
+            </div>
+        
+            <!-- The second meal -->
+            <div class="bg-[url('P2.jpg')] bg-no-repeat bg-center bg-cover bg-red-600 h-[360px] w-[300px] rounded-[50px] flex items-end justify-center p-4 transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="text-white text-center">
+                    <p class="text-xl font-bold">GRILLED BEEF BURGER, FRIES & COKE</p>
+                    <p class="font-bold text-green-500 text-4xl mt-2">$10.99</p>
+                </div>
+            </div>
+        
+            <!-- The third meal -->
+            <div class="bg-[url('P3.jpg')] bg-no-repeat bg-center bg-cover bg-red-600 h-[360px] w-[300px] rounded-[50px] flex items-end justify-center p-4 transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="text-white text-center">
+                    <p class="text-xl font-bold">SPICY CHICKEN BURGER, ONION RINGS & SMOOTHIE</p>
+                    <p class="font-bold  text-green-500 text-4xl mt-2">$11.99</p>
+                </div>
+            </div>
+        
+            <!-- The fourth meal -->
+            <div class="bg-[url('P4.jpg')] bg-no-repeat bg-center bg-cover bg-red-600 h-[360px] w-[300px] rounded-[50px] flex items-end justify-center p-4 transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="text-white text-center">
+                    <p class="text-xl font-bold">VEGAN BURGER, SWEET POTATO FRIES & ICED TEA</p>
+                    <p class="font-bold text-green-500 text-4xl mt-2">$9.99</p>
+                </div>
+            </div>
+        </section>
+        <section class="flex justify-center gap-[100px] flex-nowrap mt-[80px]">
+            <!-- The first meal -->
+            <div class="bg-[url('P5.jpg')] bg-no-repeat bg-center bg-cover bg-red-600 h-[360px] w-[300px] rounded-[50px] flex items-end justify-center p-4 transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="text-white text-center">
+                    <p class="text-xl font-bold">SEAFOOD PLATTER, GARLIC BREAD & LEMONADE</p>
+                    <p class="font-bold text-green-500 text-4xl mt-2">$14.99</p>
+                </div>
+            </div>
+        
+            <!-- The second meal -->
+            <div class="bg-[url('P6.jpg')] bg-no-repeat bg-center bg-cover bg-red-600 h-[360px] w-[300px] rounded-[50px] flex items-end justify-center p-4 transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="text-white text-center">
+                    <p class="text-xl font-bold">BBQ RIBS, MASHED POTATOES & ICED WATER</p>
+                    <p class="font-bold text-green-500 text-4xl mt-2">$13.49</p>
+                </div>
+            </div>
+        
+            <!-- The third meal -->
+            <div class="bg-[url('P7.jpg')] bg-no-repeat bg-center bg-cover bg-red-600 h-[360px] w-[300px] rounded-[50px] flex items-end justify-center p-4 transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="text-white text-center">
+                    <p class="text-xl font-bold">BREAKFAST PANCAKES WITH CARAMMEL</p>
+                    <p class="font-bold  text-green-500 text-4xl mt-2">$5.99</p>
+                </div>
+            </div>
+        
+            <!-- The fourth meal -->
+            <div class="bg-[url('P8.jpg')] bg-no-repeat bg-center bg-cover bg-red-600 h-[360px] w-[300px] rounded-[50px] flex items-end justify-center p-4 transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="text-white text-center">
+                    <p class="text-xl font-bold">VANILLA AND CHOCOLATE ICE-CREAM </p>
+                    <p class="font-bold text-green-500 text-4xl mt-2">$10.49</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    </body>
+    </html>
