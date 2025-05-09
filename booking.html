@@ -51,53 +51,146 @@
         </div>
     </header>
     <main>
-        <section>
-            <P class="text-center pt-[70px] text-white text-[40px] font-bold">TABLE BOOKING FORM</P>
-        </section>
-        <section class="max-w-lg mx-auto mt-10 p-6 bg-black text-white border border-white shadow-lg">
-            <h2 class="text-2xl font-bold text-center mb-4">Reserve a Table</h2>
-            <form action="/reserve" method="POST" class="space-y-4">
-                <div>
-                    <label for="name" class="block font-semibold">Name:</label>
-                    <input type="text" id="name" name="name" required 
-                           placeholder="Enter your name"
-                           class="w-full p-2 border border-white bg-white text-black placeholder-black">
-                </div>
-                <div>
-                    <label for="email" class="block font-semibold">Email:</label>
-                    <input type="email" id="email" name="email" required 
-                           placeholder="Enter your email"
-                           class="w-full p-2 border border-white bg-white text-black placeholder-black">
-                </div>
-                <div>
-                    <label for="phone" class="block font-semibold">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" required 
-                           placeholder="Enter your phone number"
-                           class="w-full p-2 border border-white bg-white text-black placeholder-black">
-                </div>
-                <div>
-                    <label for="date" class="block font-semibold">Booking Date:</label>
-                    <input type="date" id="date" name="date" required 
-                           class="w-full p-2 border border-white bg-white text-black placeholder-black">
-                </div>
-               
-                <div>
-                    <label for="adults" class="block font-semibold">Number of Adults:</label>
-                    <input type="number" id="adults" name="adults" min="1" required 
-                           placeholder="Enter number of adults"
-                           class="w-full p-2 border border-white bg-white text-black placeholder-black">
-                </div>
-                <div>
-                    <label for="tables" class="block font-semibold">Number of Tables:</label>
-                    <input type="number" id="tables" name="tables" min="1" required 
-                           placeholder="Enter number of tables"
-                           class="w-full p-2 border border-white bg-white text-black placeholder-black">
-                </div>
-                <button type="submit" 
-                        class="w-full bg-yellow-500 text-black font-bold py-2 hover:bg-gray-300 rounded-lg">
-                    Reserve Table
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Table Booking</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+        <body class="bg-gray-900 text-white p-6">
+        
+            <!-- Page Title -->
+            <section>
+                <p class="text-center pt-[70px] text-white text-[40px] font-bold">TABLE BOOKING FORM</p>
+            </section>
+        
+            <!-- Booking Form -->
+            <section class="max-w-lg mx-auto mt-10 p-6 bg-black border border-white shadow-lg rounded-lg">
+                <h2 class="text-2xl font-bold text-center mb-4">Reserve a Table</h2>
+        
+                <!-- Form Fields -->
+                <form class="space-y-4">
+                    <!-- Name Input -->
+                    <div>
+                        <label for="name" class="block font-semibold">Name:</label>
+                        <input type="text" id="name" placeholder="Enter your name"
+                               class="w-full p-2 border border-white bg-white text-black placeholder-black" required>
+                    </div>
+        
+                    <!-- Email Input -->
+                    <div>
+                        <label for="email" class="block font-semibold">Email:</label>
+                        <input type="email" id="email" placeholder="Enter your email"
+                               class="w-full p-2 border border-white bg-white text-black placeholder-black" required>
+                    </div>
+        
+                    <!-- Phone Input -->
+                    <div>
+                        <label for="phone" class="block font-semibold">Phone Number:</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number"
+                               class="w-full p-2 border border-white bg-white text-black placeholder-black" required>
+                    </div>
+        
+                    <!-- Booking Date Input -->
+                    <div>
+                        <label for="date" class="block font-semibold">Booking Date:</label>
+                        <input type="date" id="date" class="w-full p-2 border border-white bg-white text-black" required>
+                    </div>
+        
+                    <!-- Number of Adults -->
+                    <div>
+                        <label for="adults" class="block font-semibold">Number of Adults:</label>
+                        <input type="number" id="adults" min="1" placeholder="Enter number of adults"
+                               class="w-full p-2 border border-white bg-white text-black placeholder-black" required>
+                    </div>
+        
+                    <!-- Number of Tables -->
+                    <div>
+                        <label for="tables" class="block font-semibold">Number of Tables:</label>
+                        <input type="number" id="tables" min="1" placeholder="Enter number of tables"
+                               class="w-full p-2 border border-white bg-white text-black placeholder-black" required>
+                    </div>
+        
+                     <!-- Booking Confirmation Button -->
+                    <button onclick="displayBooking(); saveBooking()" type="button"
+                              class="w-full bg-yellow-500 text-black font-bold py-2 hover:bg-gray-300 rounded-lg">
+                             Reserve Table
+                    </button>
+
+                </form>
+        
+                <!-- View Recent Bookings Button -->
+                <button type="button" onclick="window.location.href='recentBookings.html'"
+                        class="mt-10 w-full bg-yellow-500 text-black font-bold py-2 hover:bg-gray-300 rounded-lg">
+                    Recent Bookings
                 </button>
-            </form>
+            </section>
+        
+            <!-- Modal Popup for Booking Details -->
+            <div id="bookingModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-black">
+                    <h2 class="text-lg font-bold mb-4">Confirm Booking Details</h2>
+                    <div id="bookingDetails"></div>
+                    <button onclick="closeModal()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+                        Close
+                    </button>
+                </div>
+            </div>
+        
+            <script>
+                // Function to display the booking details in the popup
+                function displayBooking() {
+                    // Get values from form fields
+                    const name = document.getElementById("name").value;
+                    const email = document.getElementById("email").value;
+                    const phone = document.getElementById("phone").value;
+                    const date = document.getElementById("date").value;
+                    const adults = document.getElementById("adults").value;
+                    const tables = document.getElementById("tables").value;
+        
+                    // Format booking details as HTML content
+                    const bookingDetails = `
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Phone:</strong> ${phone}</p>
+                        <p><strong>Booking Date:</strong> ${date}</p>
+                        <p><strong>Number of Adults:</strong> ${adults}</p>
+                        <p><strong>Number of Tables:</strong> ${tables}</p>
+                    `;
+        
+                    // Display the booking details in the modal
+                    document.getElementById("bookingDetails").innerHTML = bookingDetails;
+        
+                    // Show the popup modal (removing Tailwind's 'hidden' class)
+                    document.getElementById("bookingModal").classList.remove("hidden");
+        
+                    // Save booking details to localStorage (so they appear in the recentBookings page)
+                    saveBooking({ name, email, phone, date, adults, tables });
+                }
+        
+                // Function to close the modal popup
+                function closeModal() {
+                    document.getElementById("bookingModal").classList.add("hidden");
+                }
+        
+                // Function to save bookings into localStorage
+                function saveBooking(booking) {
+                    // Retrieve existing bookings or initialize an empty array
+                    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+        
+                    // Add the new booking to the array
+                    bookings.push(booking);
+        
+                    // Save updated bookings list back to localStorage
+                    localStorage.setItem("bookings", JSON.stringify(bookings));
+                }
+            </script>
+        
+        </body>
+        </html>
+        
         </section>
     </main>
     <footer class="mt-[120px] bg-[url('FOOT.jpg')] bg-cover bg-center bg-no-repeat w-full bg-gray-900 text-white py-12">
@@ -141,45 +234,48 @@
             </div>
         </div>
     </footer>
+   <!-- Popup Modal -->
+<div id="bookingModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-lg font-bold mb-4">Confirm Booking Details</h2>
+        <div id="bookingDetails" class="text-sm"></div>
+        <button onclick="closeModal()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+            Close
+        </button>
+    </div>
+</div>
     <script>
-        function displayBooking() {
-            // Get form values
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const phone = document.getElementById("phone").value;
-            const date = document.getElementById("date").value;
-            const adults = document.getElementById("adults").value;
-            const tables = document.getElementById("tables").value;
+    function displayBooking() {
+    // Get form values
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const date = document.getElementById("date").value;
+    const adults = document.getElementById("adults").value;
+    const tables = document.getElementById("tables").value;
 
-            // Create booking details text
-            const bookingDetails = `
-                <h2>Booking Confirmation</h2>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Phone Number:</strong> ${phone}</p>
-                <p><strong>Booking Date:</strong> ${date}</p>
-                <p><strong>Number of Adults:</strong> ${adults}</p>
-                <p><strong>Number of Tables:</strong> ${tables}</p>
-            `;
+    // Create booking details HTML
+    const bookingDetails = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Booking Date:</strong> ${date}</p>
+        <p><strong>Number of Adults:</strong> ${adults}</p>
+        <p><strong>Number of Tables:</strong> ${tables}</p>
+    `;
 
-            // Open new window
-            const bookingWindow = window.open("", "Booking", "width=500,height=600");
-            bookingWindow.document.write(`
-                <html>
-                    <head>
-                        <title>Booking Details</title>
-                        <style>
-                            body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-                            h2 { color: black; }
-                            p { font-size: 16px; color: black; }
-                        </style>
-                    </head>
-                    <body>
-                        ${bookingDetails}
-                    </body>
-                </html>
-            `);
-        }
+    // Update modal content
+    document.getElementById("bookingDetails").innerHTML = bookingDetails;
+
+    // Show modal (remove Tailwind's 'hidden' class)
+    document.getElementById("bookingModal").classList.remove("hidden");
+}
+
+function closeModal() {
+    // Hide modal (add Tailwind's 'hidden' class)
+    document.getElementById("bookingModal").classList.add("hidden");
+}
+
     </script>
     </body>
     </html>

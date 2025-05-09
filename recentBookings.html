@@ -1,0 +1,97 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="FAVICON-removebg-preview.png">
+</head>
+<body class="bg-[url('ALL.jpeg')] bg-cover bg-center bg-no-repeat w-full">
+    <header class="relative bg-[url('BG2.jpg')] bg-cover bg-center bg-no-repeat w-full py-6">
+        <!-- Overlay for better readability -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    
+        <div class="relative container mx-auto px-6 flex flex-col items-center">
+            <!-- Logo Section (Centered) -->
+            <div class="flex items-center gap-4">
+                <img src="F_AST_burgers-removebg-preview.png" class="h-[100px] w-[400px]" alt="Logo">
+            </div>
+    
+            <!-- Navigation Bar -->
+            <nav class="mt-6 bg-white bg-opacity-70 rounded-full px-10 py-3 flex items-center justify-between w-[80%] shadow-lg">
+                <!-- Links -->
+                <ul class="flex gap-8 text-lg font-semibold">
+                    <li><a href="index.html" class="text-gray-800 hover:text-yellow-600 transition">HOME</a></li>
+                    <li><a href="meals.html" class="text-gray-800 hover:text-yellow-600 transition">MENU</a></li>
+                    <li><a href="booking.html" class="text-gray-800 hover:text-yellow-600 transition">BOOKING</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-yellow-600 transition">REVIEWS</a></li>
+                </ul>
+    
+                <!-- Search & Notification -->
+                <div class="flex items-center gap-6">
+                    <div class="relative">
+                        <input type="text" placeholder="Search..." class="px-4 py-2 rounded-full border border-gray-400 focus:outline-none">
+                        <button class="absolute right-2 top-1 text-gray-500 hover:text-yellow-600">
+                            🔍
+                        </button>
+                    </div>
+    
+                    <button class="relative text-gray-500 hover:text-yellow-600">
+                        🔔
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">3</span>
+                    </button>
+                </div>
+    
+                <!-- CTA Button -->
+                <a href="meals.html" class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-full transition duration-300 shadow-lg animate-bounce">
+                    Order Now
+                </a>
+            </nav>
+        </div>
+    </header>
+    <script>
+        function loadBookings() {
+    // Get stored bookings from localStorage
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+    // Find the bookings display container
+    let bookingsList = document.getElementById("bookingsList");
+    bookingsList.innerHTML = ""; // Clear existing content
+
+    if (bookings.length === 0) {
+        // If no bookings are found, show a message
+        bookingsList.innerHTML = "<p class='text-gray-500'>No recent bookings available.</p>";
+    } else {
+        // Loop through and display each stored booking
+        bookings.forEach((booking) => {
+            bookingsList.innerHTML += `
+                <div class="border p-4 mb-4 bg-white shadow rounded">
+                    <p><strong>Name:</strong> ${booking.name}</p>
+                    <p><strong>Email:</strong> ${booking.email}</p>
+                    <p><strong>Phone:</strong> ${booking.phone}</p>
+                    <p><strong>Date:</strong> ${booking.date}</p>
+                    <p><strong>Adults:</strong> ${booking.adults}</p>
+                    <p><strong>Tables:</strong> ${booking.tables}</p>
+                </div>
+            `;
+        });
+    }
+}
+
+// Load bookings when the page is ready
+document.addEventListener("DOMContentLoaded", loadBookings);
+</script>
+   
+<section class="p-6 pl-[500px] bg-gray-100">
+    <h1 class="text-2xl font-bold mb-4">Available Appointments</h1>
+    <div id="bookingsList" class="mb-[20px] space-y-4">
+        
+    </div>
+    <a href="booking.html" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        Back to Booking Form
+    </a>
+</section>
+
+</body>
+</html>
